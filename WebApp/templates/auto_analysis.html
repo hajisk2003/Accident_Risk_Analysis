@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto Data Analysis</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="graph-card">
+      <h3>📌 Key Insights from Uploaded Data</h3>
+      <ul class="custom-bullet">
+        {% for i in insights %}
+        <li>{{ i }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="navbar">
+      <a href="/">Prediction</a>
+      <a href="/analysis">Analysis</a>
+      <a href="/upload">Upload Data</a>
+    </div>
+
+    <div class="analysis-hero">
+      <h1>📂 Uploaded Data Analysis</h1>
+      <p>Insights generated automatically from your dataset</p>
+    </div>
+
+    <div class="analysis-grid">
+      <div class="graph-card">
+        <h3>Severity Distribution</h3>
+        <img src="/static/auto_graphs/severity.png" />
+        <p class="insight">
+          Shows how accident severity is distributed. If high severity
+          dominates, urgent road safety measures are required.
+        </p>
+      </div>
+
+      <div class="graph-card">
+        <h3>Top Weather Conditions</h3>
+        <img src="/static/auto_graphs/weather.png" />
+        <p class="insight">
+          Indicates which weather causes more accidents. Authorities can issue
+          warnings or reduce speed limits in such conditions.
+        </p>
+      </div>
+
+      <div class="graph-card">
+        <h3>Visibility vs Severity</h3>
+        <img src="/static/auto_graphs/visibility.png" />
+        <p class="insight">
+          Lower visibility often increases accident severity. Better lighting,
+          reflectors, and fog alerts can reduce risk.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 30px">
+      <a href="/" class="submit-button" style="width: 200px"
+        >Back to Prediction</a
+      >
+    </div>
+  </body>
+</html>

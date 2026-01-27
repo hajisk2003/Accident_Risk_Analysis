@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Accident Data</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/">Prediction</a>
+      <a href="/analysis">Analysis</a>
+      <a href="/upload">Upload Data</a>
+    </div>
+
+    <div class="container">
+      <div class="content-box">
+        <h1>📤 Upload Your Accident Data</h1>
+        <p>Upload CSV file to perform automatic EDA and get insights.</p>
+
+        <form action="/process" method="post" enctype="multipart/form-data">
+          <input
+            type="file"
+            name="file"
+            accept=".csv"
+            required
+            class="form-input"
+          />
+          <br /><br />
+          <button type="submit" class="submit-button">Upload & Analyze</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

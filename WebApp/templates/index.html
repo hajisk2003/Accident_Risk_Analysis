@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Severity Prediction</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <script>
+      function fillSample() {
+        document.getElementById("distance").value = 0.5;
+        document.getElementById("street").value = "Main Street";
+        document.getElementById("city").value = "Columbus";
+        document.getElementById("country").value = "US";
+        document.getElementById("state").value = "OH";
+        document.getElementById("temperature").value = 45;
+        document.getElementById("wind_chill").value = 40;
+        document.getElementById("visibility").value = 8;
+        document.getElementById("wind_direction").value = "NW";
+        document.getElementById("weather_condition").value = "Overcast";
+        document.getElementById("traffic_signal").value = 1;
+        document.getElementById("sunrise_sunset").value = 0;
+      }
+
+      function fillRow(row) {
+        const cells = row.children;
+        document.getElementById("distance").value = cells[0].innerText;
+        document.getElementById("street").value = cells[1].innerText;
+        document.getElementById("city").value = cells[2].innerText;
+        document.getElementById("state").value = cells[3].innerText;
+        document.getElementById("temperature").value = cells[4].innerText;
+        document.getElementById("wind_chill").value = cells[5].innerText;
+        document.getElementById("visibility").value = cells[6].innerText;
+        document.getElementById("wind_direction").value = cells[7].innerText;
+        document.getElementById("weather_condition").value = cells[8].innerText;
+        document.getElementById("traffic_signal").value = cells[9].innerText;
+        document.getElementById("sunrise_sunset").value = cells[10].innerText;
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="/">Prediction</a>
+      <a href="/analysis">Analysis</a>
+      <a href="/upload">Upload Data</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>🚦 Road Accident Risk Analysis</h1>
+      <p class="hero-sub">
+        AI-powered system to predict accident severity and improve road safety
+      </p>
+      <img
+        src="{{ url_for('static', filename='accident.jpg') }}"
+        class="hero-img"
+      />
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <div class="content-box">
+        <h2 class="title">Traffic Severity Prediction</h2>
+
+        <!-- Sample Data -->
+        <h3>Sample US Accident Records</h3>
+        <table class="sample-table">
+          <tr>
+            <th>Distance</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Temp</th>
+            <th>Wind Chill</th>
+            <th>Visibility</th>
+            <th>Wind Dir</th>
+            <th>Weather</th>
+            <th>Signal</th>
+            <th>Sunrise</th>
+          </tr>
+          <tr onclick="fillRow(this)">
+            <td>0.5</td>
+            <td>Main St</td>
+            <td>Columbus</td>
+            <td>OH</td>
+            <td>45</td>
+            <td>40</td>
+            <td>8</td>
+            <td>NW</td>
+            <td>Overcast</td>
+            <td>1</td>
+            <td>0</td>
+          </tr>
+          <tr onclick="fillRow(this)">
+            <td>1.2</td>
+            <td>I-75 S</td>
+            <td>Dayton</td>
+            <td>OH</td>
+            <td>32</td>
+            <td>28</td>
+            <td>5</td>
+            <td>SW</td>
+            <td>Light Rain</td>
+            <td>0</td>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <p class="subtitle">
+          This system predicts traffic severity to help reduce road accidents.
+          Try entering values or click a sample row above.
+        </p>
+
+        <!-- Prediction Form -->
+        <h2 style="color: #ffcc00">Prediction Form</h2>
+
+        <form action="/predict" method="post" class="prediction-form">
+          <div class="input-group">
+            <label>Distance (mi)</label>
+            <input
+              type="text"
+              id="distance"
+              name="distance"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Street</label>
+            <input
+              type="text"
+              id="street"
+              name="street"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Country</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>State</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Temperature (F)</label>
+            <input
+              type="text"
+              id="temperature"
+              name="temperature"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Wind Chill (F)</label>
+            <input
+              type="text"
+              id="wind_chill"
+              name="wind_chill"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Visibility (mi)</label>
+            <input
+              type="text"
+              id="visibility"
+              name="visibility"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Wind Direction</label>
+            <input
+              type="text"
+              id="wind_direction"
+              name="wind_direction"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Weather Condition</label>
+            <input
+              type="text"
+              id="weather_condition"
+              name="weather_condition"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Traffic Signal (0/1)</label>
+            <input
+              type="text"
+              id="traffic_signal"
+              name="traffic_signal"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Sunrise/Sunset (0/1)</label>
+            <input
+              type="text"
+              id="sunrise_sunset"
+              name="sunrise_sunset"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <button
+            type="button"
+            class="submit-button"
+            style="background: #2b2d42"
+            onclick="fillSample()"
+          >
+            USE SAMPLE DATA
+          </button>
+
+          <input type="submit" value="PREDICT SEVERITY" class="submit-button" />
+        </form>
+      </div>
+
+      <div class="image-container">
+        <img src="{{ url_for('static', filename='car.png') }}" alt="Traffic" />
+      </div>
+    </div>
+  </body>
+</html>

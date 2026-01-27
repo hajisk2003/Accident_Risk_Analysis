@@ -1,0 +1,236 @@
+body {
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0;
+    padding: 0; 
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  min-height: 100vh;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-img {
+  width: 60%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px black;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(0,0,0,0.4);
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  color: white;
+  text-shadow: 0 0 10px yellow;
+}
+
+
+
+h1, h2, h3 {
+  color: #ffcc00;
+  text-align: center;
+}
+
+.container, .content-box {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: flex-start; /* Align items at the start */
+    padding: 0 10%; /* 10% padding on both sides */
+    height: 100vh;
+    text-align: center;
+}
+
+.content-box {
+    width: 60%; /* Adjusted width */
+    /* background-color: #ffffff; */
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 34px; /* Increase font size */
+    margin-top: 0;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 16px; /* Increase font size */
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #8D99AE;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #2B2D42;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #EF233C;
+    box-shadow: 0 0 5px rgba(239,35,60,0.4);
+}
+
+.submit-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #EF233C, #D90429);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.sample-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.sample-table th, .sample-table td {
+  border: 1px solid #8D99AE;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.sample-table tr:hover {
+  background-color: #ffd6d6;
+}
+
+
+.submit-button:hover {
+    background: linear-gradient(90deg, #D90429, #EF233C);
+    transform: scale(1.02);
+}
+
+.image-container {
+    width: 30%;
+    position: fixed; /* Set position to fixed */
+    top: 28%; /* Adjust top position as needed */
+    right: 6%; /* Adjust right position as needed */
+    z-index: 999; /* Set a high z-index to ensure the image appears above other content */
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#output {
+    display: none;
+}
+.analysis-hero {
+  background: linear-gradient(to right, #2b2d42, #8d99ae);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.graph-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.graph-card:hover {
+  transform: scale(1.03);
+}
+
+.graph-card h3 {
+  text-align: center;
+  color: #2b2d42;
+}
+
+.graph-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.analysis-hero{
+  text-align:center;
+  padding:40px;
+  background:linear-gradient(to right,#2b2d42,#8d99ae);
+  color:white;
+}
+
+.analysis-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+.graph-card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  text-align:center;
+}
+
+.graph-card img{
+  width:100%;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+.graph-card h3{
+  color:#ef233c;
+}
+
+.insight{
+  margin-top:10px;
+  color:#2b2d42;
+  font-size:14px;
+}
+

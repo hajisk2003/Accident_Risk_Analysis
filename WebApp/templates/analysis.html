@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traffic Accident Analysis</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/">Prediction</a>
+      <a href="/analysis">Analysis</a>
+      <a href="/upload">Upload Data</a>
+    </div>
+
+    <div class="analysis-hero">
+      <h1>📊 Traffic Accident Data Analysis</h1>
+      <p>Interactive insights from historical accident data</p>
+    </div>
+
+    <div class="analysis-grid">
+      <div class="graph-card">
+        <h3>Accidents by Year</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/year.png') }}"
+          alt="Year graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Top States with Accidents</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/state.png') }}"
+          alt="State graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Severity Distribution</h3>
+        <img
+          <img src="{{ url_for('static', filename='auto_graphs/severity.png') }}?v={{ time }}"
+          alt="Severity graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Weather vs Accidents</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/weather.png') }}"
+          alt="Weather graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Top Accident Cities</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/city.png') }}"
+          alt="City graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Feature Correlation</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/corr.png') }}"
+          alt="Correlation heatmap"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Visibility vs Severity</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/visibility.png') }}"
+          alt="Visibility graph"
+        />
+      </div>
+
+      <div class="graph-card">
+        <h3>Top Accident Streets</h3>
+        <img
+          src="{{ url_for('static', filename='auto_graphs/street.png') }}"
+          alt="Street graph"
+        />
+      </div>
+    </div>
+  </body>
+</html>
